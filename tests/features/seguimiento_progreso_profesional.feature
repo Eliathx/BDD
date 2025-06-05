@@ -8,16 +8,22 @@ Característica: Seguimiento de autoevaluación de progreso profesionalizante
 
   Esquema del escenario: Seguimiento sin falencias
     Dado que el estudiante tiene al menos un historial
-    Cuando consulta el progreso del objetivo "<objetivo>" en el historial para el <semestre>
-    Entonces se mostrará el <porcentaje_de_progreso> en verde por cada objetivo
-    Y se mostrará la <media_de_progreso> de estudiantes
+    Cuando consulta la <nota_de_progreso> para el objetivo "<objetivo>" en el historial del semestre <semestre>
+    Entonces se indicará que cumple con el objetivo
+    Y se mostrará la <media_de_progreso> de los estudiantes
 
     Ejemplos:
-      | objetivo                                                                                                                                                                                                      | cantidad_de_historiales | porcentaje_de_progreso | media_de_progreso | semestre |
-      | Aplicar teorías, metodologías, estándares y tecnologías apropiadas, para crear soluciones de software, mediante el análisis, diseño, desarrollo, implementación, verificación, documentación, y gestión.      | 1                       | 83                     | 78                | 2025-A   |
-      | Emplear principios y herramientas de investigación, para generar nuevas formas de aplicación de la Ingeniería de Software en los sectores industriales y académicos estratégicos del país.                    | 4                       | 87                     | 81                | 2024-A   |
-      | Evaluar aspectos interdisciplinares de infraestructuras tecnológicas existentes: tecnologías emergentes, legales, éticos, económicos, ambientales y sociales, para diseñar soluciones de Software de Calidad. | 7                       | 93                     | 80                | 2024-A   |
+      | objetivo  | nota_de_progreso | media_de_progreso | semestre |
+      | APLICAR   | 83                     | 78                | 2024-A   |
+      | EMPLEAR   | 87                     | 81                | 2024-A   |
+      | EVALUAR   | 93                     | 85                | 2024-A   |
 
-
+    """
+    Esquema del escenario: Seguimiento con falencias
+    Dado que el estudiante tiene al menos un historial
+    Cuando consulta la <nota_de_progreso> para el objetivo "<objetivo>" en el historial del semestre <semestre>
+    Entonces se indicará que no cumple con el objetivo "<objetivo>"
+    Y se mostrará la <media_de_progreso> de los estudiantes
+    """
 
 
